@@ -44,6 +44,7 @@ Al the oher code enemies, playership, movement, fire , etc it's almost self expl
 License
 -------
 
-[BSD](https://opensource.org/licenses/MIT).
+[MIT License](https://opensource.org/licenses/MIT).
+
 
 
