@@ -119,6 +119,7 @@ public class AsteroidsManager : MonoBehaviour
         asteroidList.Add(obj);
     }
 
+    // Make the asteroid move at a random speed (used when an asteroid is created).
     private void PushAsteroid(GameObject _asteroid, AsteroidUnit asteroidUnit)
     {
         Rigidbody2D myRigidbody2D = _asteroid.GetComponent<Rigidbody2D>();
@@ -127,9 +128,9 @@ public class AsteroidsManager : MonoBehaviour
         float ySpeed = Random.Range(asteroidUnit.speed - 5, asteroidUnit.speed + 5);
         ySpeed *= Random.Range(0, 2) == 0 ? -1 : 1;
         myRigidbody2D.velocity = new Vector2(xSpeed, ySpeed);
-        //Debug.Log(_asteroid.name+": Velo: " + myRigidbody2D.velocity+" Multiplying by: "+(LevelManager.Instance.numLevel * veloMult).ToString());
-        myRigidbody2D.velocity *= /*LevelManager.Instance.numLevel **/ veloMult; // skill velocity multiplier.
-        //Debug.Log(_asteroid.name + " Total Velo: " + myRigidbody2D.velocity);
+        //Debug.Log("PushAsteroid-> "+_asteroid.name+": Velo: " + myRigidbody2D.velocity+" Multiplying by: "+(LevelManager.Instance.numLevel * veloMult).ToString());
+        myRigidbody2D.velocity *= veloMult;     // LevelManager.Instance.numLevel * veloMult; // skill velocity multiplier.
+        //Debug.Log("PushAsteroid-> "+_asteroid.name + " Total Velo: " + myRigidbody2D.velocity);
 
         float newTorque = Random.Range(asteroidUnit.torque*0.7f, asteroidUnit.torque);
         newTorque *= Random.Range(0, 2) == 0 ? -1 : 1;

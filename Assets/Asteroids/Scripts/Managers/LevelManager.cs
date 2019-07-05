@@ -52,13 +52,12 @@ public class LevelManager : MonoBehaviour
     {
         numlives++;
         UpdateLivesInScreen();
-        // Falta el sonido de vida extra
+        // Todo: Falta el sonido de vida extra (missing extra life sound fx)
     }
 
     public void Die()
     {
         numlives--;
-        //AsteroidsManager.Instance.ratio = 1f;     // Reiniciamos el ratio.
         if (numlives <= 0)
         {
             Debug.Log("Game Over");
@@ -90,6 +89,7 @@ public class LevelManager : MonoBehaviour
     }
 
     // Se llama desde el menu de pausa para volver al menu principal
+    // It's called from pause Popup in game to return to main menu.
     public void ExitGame()
     {
         UnPauseGame();
@@ -173,81 +173,6 @@ public class LevelManager : MonoBehaviour
 
     private void UpdateLevelInScreen()
     {
-        //string displayString = string.Format("{0:00}", numLevel);
         levelText.text = string.Format("{0:00}", numLevel);
     }
-
-
-    #region GooglePlay Section
-
-    // Sending data to Leaderboards & achievements.
-    /*private void ReportToGooglePlayGames()
-    {
-        #if UNITY_ANDROID
-        StartCoroutine("SubmitScoreGooglePlayAndroid", score);
-        #elif UNITY_IPHONE
-		StartCoroutine ("SubmitScoreGooglePlayIOS" , score);
-        #endif
-        //if (currentLevel % 5 == 0)
-        //    ReportAchievement();
-    }
-
-    private IEnumerator SubmitScoreGooglePlayAndroid(int _score)
-    {
-        #if UNITY_ANDROID
-        Debug.Log("Submitting Score: " + _score);// + " Level: " + currentLevel);
-        yield return new WaitForSeconds(1); 
-
-        GooglePlayManager.Instance.SubmitScore(ConnectGooglePlay.LEADERBOARD_FAST_NAME, _score);
-        #endif
-    }
-
-    private void SubmitScoreGooglePlayIOS(int _score)
-    {
-        #if UNITY_IPHONE
-		Debug.Log("Submitting Score: " + _score + " Level: " + ArkanoidManager.Instance.currentLevel);
-        yield return new WaitForSeconds(1); 
-        GooglePlayManager.Instance.SubmitScore (ConnectGooglePlay.LEADERBOARD_FAST_ID, _score);
-        #endif
-    }*/
-
-    /*private void ReportAchievement()
-    {
-
-        Debug.Log("Reportando logro a GooglePlay. Level: " + ArkanoidManager.Instance.currentLevel);
-        switch (ArkanoidManager.Instance.currentLevel)
-        {
-            case 10:
-                #if UNITY_ANDROID
-                GooglePlayManager.Instance.UnlockAchievement(ConnectGooglePlay.ACHIEVEMENT_NOOB_NAME);
-                #elif UNITY_IPHONE
-			    GameCenterManager.submitAchievement(100.0f, ConnectGooglePlay.ACHIEVEMENT_NOOB_ID);
-                #endif
-                break;
-            case 20:
-                #if UNITY_ANDROID
-                GooglePlayManager.Instance.UnlockAchievement(ConnectGooglePlay.ACHIEVEMENT_PRO_NAME);
-                #elif UNITY_IPHONE
-			    GameCenterManager.submitAchievement(100.0f, ConnectGooglePlay.ACHIEVEMENT_PRO_ID);
-                #endif
-                break;
-            case 30:
-                #if UNITY_ANDROID
-                GooglePlayManager.Instance.UnlockAchievement(ConnectGooglePlay.ACHIEVEMENT_BOSS_NAME);
-                #elif UNITY_IPHONE
-			    GameCenterManager.submitAchievement(100.0f, ConnectGooglePlay.ACHIEVEMENT_BOSS_ID);
-                #endif
-                break;
-            case 50:
-                #if UNITY_ANDROID
-                GooglePlayManager.Instance.UnlockAchievement(ConnectGooglePlay.ACHIEVEMENT_MASTER_NAME);
-                #elif UNITY_IPHONE
-			    GameCenterManager.submitAchievement(100.0f, ConnectGooglePlay.ACHIEVEMENT_MASTER_ID);
-                #endif
-                break;
-            default: break;
-        }
-    }*/
-
-    #endregion
 }

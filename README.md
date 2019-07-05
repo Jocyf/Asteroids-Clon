@@ -14,6 +14,7 @@ Asteroids project notes:
 
 Asteroids uses a free tweener asset (DotTween). It's available for downnload in the Asset Store: 
 https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676
+The Tween is used to perform fade when loading a new scene and to make the player ship to Blink.
 
 This project only uses sprites (All sprites are contained in one file) and 2d physics.
 The project uses two property attributes (Disable and InpectorButton) to improve the Inspector window view.
@@ -23,7 +24,7 @@ Project code notes:
 -------------------
 Managers.
 GameManager -> Basic setup (framerate) and public LoadMainMenu functions.
-LevelManager -> StartGame, PauseGame, Detect GameOver or LevelFinished. Manage players live and score and UI refresh of this values.
+LevelManager -> StartGame, PauseGame, Detect GameOver or LevelFinished. Manage players live and score and update this values on screen UI.
 ScreenBoundsManager -> Calculate the screen bounds to tell if something is in/out the screen (Visible/Invisible). Some other helper functions.
 AsteroidsManager -> Generates/Destroys the asteroids and always know the asteroids number left in game (so it can tell us when there isn't any at all)
 UFOManager -> Creates/Destroy the UFO after waiting a period of time.
