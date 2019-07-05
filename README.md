@@ -43,8 +43,12 @@ Al the oher code enemies, playership, movement, fire , etc it's almost self expl
 
 License
 -------
-
+Unity project and source code license:
 [MIT License](https://opensource.org/licenses/MIT).
+
+Note: This project is coying the sprites and sounds from the original "Asteroids" game licensed to Atari Inc.
+in order to create an Asteroids clon game for learning purposes only.
+
 
 
 
