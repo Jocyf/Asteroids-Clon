@@ -23,15 +23,23 @@ The project uses two property attributes (Disable and InpectorButton) to improve
 Project code notes:
 -------------------
 Managers.
+
 GameManager -> Basic setup (framerate) and public LoadMainMenu functions.
+
 LevelManager -> StartGame, PauseGame, Detect GameOver or LevelFinished. Manage players live and score and update this values on screen UI.
+
 ScreenBoundsManager -> Calculate the screen bounds to tell if something is in/out the screen (Visible/Invisible). Some other helper functions.
+
 AsteroidsManager -> Generates/Destroys the asteroids and always know the asteroids number left in game (so it can tell us when there isn't any at all)
+
 UFOManager -> Creates/Destroy the UFO after waiting a period of time.
 
 SceneWrapping:
+
 AdvancedWrapping -> Used in the PlayerShip. Creates the playership ghosts so we can switch ship when we are in the screen edge.
+
 ScreenCornerDetectorv1 -> Used in Asteroids and UFOs. Wrap the object when is in the screen edge (change its position to the other side of the screen)
+
 ScreenCornerDetectorv2 -> Used in the PlayerShip. Wrap the ship when is in the screen edge (change its position to the other side of the screen)
 
 Those to different versions of wrapping objects detects the moment to make the wrap in different ways (using different aproaches). 
